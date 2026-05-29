@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Neon Hacker Calc | Dark/Light/Combo</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header with logo & theme switch -->
+    <div class="header">
+      <h1 class="neon-logo">Numerio Calc 🥷<span class="cursor">_</span></h1>
+      <div class="theme-switch-wrapper">
+        <label class="neon-radio">
+          <input type="radio" name="theme" value="dark" checked> DARK
+        </label>
+        <label class="neon-radio">
+          <input type="radio" name="theme" value="light"> LIGHT
+        </label>
+        <label class="neon-radio">
+          <input type="radio" name="theme" value="combo"> COMBO
+        </label>
+      </div>
+      <button id="settingsToggle" class="neon-btn icon-btn" title="Customize">
+        <i class="fa-solid fa-sliders"></i>
+      </button>
+      <button id="historyToggle" class="neon-btn icon-btn" title="History">
+        <i class="fa-solid fa-clock-rotate-left"></i>
+      </button>
+    </div>
+
+    <!-- Calculator Body -->
+    <div class="calc-body">
+      <div class="display">
+        <input type="text" id="result" readonly placeholder="0" />
+        <div id="expression" class="expression"></div>
+      </div>
+
+      <div class="buttons">
+        <!-- Row 1 -->
+        <button class="neon-btn func" data-action="clear">AC</button>
+        <button class="neon-btn func" data-action="backspace">⌫</button>
+        <button class="neon-btn op" data-action="square">x²</button>
+        <button class="neon-btn op" data-action="sqrt">√</button>
+
+        <!-- Row 2 -->
+        <button class="neon-btn num" data-value="7">7</button>
+        <button class="neon-btn num" data-value="8">8</button>
+        <button class="neon-btn num" data-value="9">9</button>
+        <button class="neon-btn op" data-action="/">÷</button>
+
+        <!-- Row 3 -->
+        <button class="neon-btn num" data-value="4">4</button>
+        <button class="neon-btn num" data-value="5">5</button>
+        <button class="neon-btn num" data-value="6">6</button>
+        <button class="neon-btn op" data-action="*">×</button>
+
+        <!-- Row 4 -->
+        <button class="neon-btn num" data-value="1">1</button>
+        <button class="neon-btn num" data-value="2">2</button>
+        <button class="neon-btn num" data-value="3">3</button>
+        <button class="neon-btn op" data-action="-">−</button>
+
+        <!-- Row 5 -->
+        <button class="neon-btn num" data-value="0">0</button>
+        <button class="neon-btn num" data-value=".">.</button>
+        <button class="neon-btn equal" data-action="=">=</button>
+        <button class="neon-btn op" data-action="+">+</button>
+      </div>
+    </div>
+
+    <!-- History Panel -->
+    <div id="historyPanel" class="panel hidden">
+      <div class="panel-header">
+        <span class="neon-text">HISTORY</span>
+        <button id="clearHistory" class="neon-btn small">CLEAR</button>
+        <button id="closeHistory" class="neon-btn close-btn" title="Close">
+          <i class="fa-solid fa-circle-xmark"></i>
+        </button>
+      </div>
+      <ul id="historyList"></ul>
+    </div>
+
+    <!-- Customization Panel -->
+    <div id="customPanel" class="panel hidden">
+      <div class="panel-header">
+        <span class="neon-text">CUSTOMIZE</span>
+        <button id="closeCustom" class="neon-btn close-btn" title="Close">
+          <i class="fa-solid fa-circle-xmark"></i>
+        </button>
+      </div>
+      <div class="custom-options">
+        <label>Neon Glow Color</label>
+        <input type="color" id="glowColor" value="#00ffff">
+        <label>Glow Intensity</label>
+        <input type="range" id="glowIntensity" min="5" max="40" value="15">
+        <label>Button Font Size</label>
+        <input type="range" id="btnFontSize" min="0.8" max="2.2" step="0.1" value="1.2">
+        <label>Button Radius</label>
+        <input type="range" id="btnRadius" min="4" max="30" value="10">
+        <button id="resetCustom" class="neon-btn">RESET DEFAULTS</button>
+      </div>
+    </div>
+
+    <footer class="neon-footer">Neon Calc // Shavii ❤️‍🩹 </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
